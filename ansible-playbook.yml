@@ -1,20 +1,20 @@
-- name : Configure Docker on EC2 Instances
-  hosts : all
+---
+- hosts: test-server
   become: true
-  connection : ssh
-  tasks : 
-  - name: updating apt
-    command : sudo apt-get update
+  become_user : root
 
-  - name : Install Docker
-    command : sudo apt-get install -y docker.io
-    become : yes
-    become_user : root
+  tasks:
+  - name: update apt
+    command: sudo apt-get update
 
-  - name : Start Docker Service
-    command : sudo systemctl start docker
-    become : yes
-    become_user : root
+  - name: install docker
+    command: sudo apt install -y docker.io
 
-  - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8082 shubhamkushwah123/medicure:1.0
+  - name: start docker service
+    command: sudo systemctl start docker
+  
+  - name: stop and remove existing insure-me container
+    command: sudo docker rm -f healthcare 
+    
+  - name: deploy insureme application
+    command: sudo docker run -itd -p 8082:8082 --name  healthcare vidyadhare/healthcare:v1
