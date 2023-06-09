@@ -16,4 +16,4 @@
     command: sudo docker rm -f healthcare 
     
   - name: deploy healthcare application
-    command: sudo docker run -itd -p 8082:8082 --name  healthcare vidyadhare/healthcare:v1
+    command: sudo docker run -itd -p 8082:8082 --name  healthcare vidyadhare/healthcare:1.0
