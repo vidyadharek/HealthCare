@@ -16,5 +16,5 @@
   - name: stop and remove existing healthcare container
     command: sudo docker rm -f healthcare 
     
-  - name: deploy insureme application
+  - name: deploy healthcare application
     command: sudo docker run -itd -p 8082:8082 --name  healthcare vidyadhare/healthcare:v1
