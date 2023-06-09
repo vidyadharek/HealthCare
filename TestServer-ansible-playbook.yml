@@ -13,7 +13,7 @@
   - name: start docker service
     command: sudo systemctl start docker
   
-  - name: stop and remove existing insure-me container
+  - name: stop and remove existing healthcare container
     command: sudo docker rm -f healthcare 
     
   - name: deploy insureme application
